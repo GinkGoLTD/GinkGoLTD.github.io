@@ -617,7 +617,61 @@ V_j(t) = 2\sqrt(\Delta \omega) \sum_{m=1}^{j} \sum_{l=1}^{N}|H_{jm}(\omega_{l})c
 </tr>
 </tbody>
 </table>
-<p>Table 4. 各国规范中的梯度风高度 | 粗糙度类别 | A | B | C | D | | | --------------------- | ------- | ------- | -------- | -------- | ----- | | 中国 GB50009-2012 (m) | 300 | 350 | 450 | 550 | | | <strong>粗糙度类别</strong> | <strong>D</strong> | <strong>C</strong> | <strong>B</strong> | <strong>A</strong> | | | 美国 ASCE7-95 (ft/m) | 700/213 | 900/274 | 1200/366 | 1500/457 | | | <strong>粗糙度类别</strong> | <strong>I</strong> | <strong>II</strong> | <strong>III</strong> | <strong>IV</strong> | <strong>V</strong> | | 日本建筑学会 1993 (m) | 250 | 350 | 450 | 550 | 650 |</p>
+<p>Table 4. 各国规范中的梯度风高度</p>
+<table>
+<thead>
+<tr class="header">
+<th>粗糙度类别</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>中国 GB50009-2012 (m)</td>
+<td>300</td>
+<td>350</td>
+<td>450</td>
+<td>550</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>D</strong></td>
+<td><strong>C</strong></td>
+<td><strong>B</strong></td>
+<td><strong>A</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>美国 ASCE7-95 (ft/m)</td>
+<td>700/213</td>
+<td>900/274</td>
+<td>1200/366</td>
+<td>1500/457</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>I</strong></td>
+<td><strong>II</strong></td>
+<td><strong>III</strong></td>
+<td><strong>IV</strong></td>
+<td><strong>V</strong></td>
+</tr>
+<tr class="odd">
+<td>日本建筑学会 1993 (m)</td>
+<td>250</td>
+<td>350</td>
+<td>450</td>
+<td>550</td>
+<td>650</td>
+</tr>
+</tbody>
+</table>
 <h4 id="湍流强度">湍流强度</h4>
 <p>对高耸结构而言, 其抖振响应主要受到湍流强度的影响, 因此在模拟脉动风场时, 应当准确反应湍流强度的基本特征(主要是沿高度的变化). <strong>以下皆为个人理解, 未在文献中看到明确说明:</strong> 在模拟风场时, 应当指定湍流强度随高度的变化特征, 然后在计算风谱时应该使得各高度处的风谱满足<span class="math inline">\(\int_0^{\infty}S_u(\omega)d\omega = \sigma_u^2\)</span>. 在完成风速合成后, 也应该检查生成的风场的湍流强度与指定的湍流强度之间是否吻合.</p>
 <p>湍流强度的定义如下 <span class="math display">\[
