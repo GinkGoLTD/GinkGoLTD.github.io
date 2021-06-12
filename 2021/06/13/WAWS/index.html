@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="GinkGo">
+    
+    <title>
+        
+            谐波合成法的Python实现及其使用手册 |
+        
+        GinkGo
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"ginkgoltd.githut.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg","favicon":"https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"To be continued ..."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                GinkGo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/openVFIFE"
+                            >
+                                OPENVFIFE
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/openVFIFE">OPENVFIFE</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">谐波合成法的Python实现及其使用手册</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">GinkGo</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-13 00:41:02
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Softwae/">Softwae</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>程序地址：https://gitee.com/ginkgoltd/waws,</p>
+<p>编程语言：<code>Python3</code></p>
+<p>作者：GinkGo</p>
+<p>Email: ginkgoltd@outlook.com</p>
+<p>谐波合成法以功率谱作为权系数，与一系列带随机相位的三角级数的加权和来逐渐逼近随机过程，适用于指定谱特征的平稳高斯随机过程。该方法有恒幅谐波叠加法和加权振幅谐波叠加法(尚未阅读相关文献).</p>
+<h2 id="谐波合成法基本步骤">谐波合成法基本步骤</h2>
+<p><strong>Step 1: </strong> 选取目标风速谱<span class="math inline">\(S(w)\)</span>和相干函数<span class="math inline">\(coh(x_i, x_j, y_i, y_j, z_i, z_j, f)\)</span>,确定模拟点坐标</p>
+<p><strong>Step 2: </strong>生成互谱密度矩阵 <span class="math display">\[
+S(w) = \begin{bmatrix} S_{11}(\omega) &amp;  S_{12}(\omega)  ...  &amp; S_{1n}(\omega) \\
+                   S_{21}(\omega) &amp;  S_{22}(\omega)  ...  &amp; S_{2n}(\omega) \\
+                   . &amp; ........ &amp; . \\
+                   . &amp; ........ &amp; . \\
+                   . &amp; ........ &amp; . \\
+                   S_{n1}(\omega) &amp;  S_{n2}(\omega)  ...  &amp; S_{nn}(\omega) \\\end{bmatrix}\\
+S_{ij}(\omega)=\sqrt{ S_{i}(\omega) S_{j}(\omega)}coh(x_i,x_j,y_i,y_j,z_i,z_j,\omega)
+\]</span></p>
+<p><strong>Step 3: </strong>对互谱密度矩阵进行cholesky分解 <span class="math display">\[
+S(w) =H(w) H^T(w)\\\\
+H(w) = \begin{bmatrix} H_{11}(\omega) &amp;  0 ...  &amp; 0 \\
+                   H_{21}(\omega) &amp;  H_{22}(\omega)  ...  &amp; 0 \\
+                   . &amp; ........ &amp; . \\
+                   . &amp; ........ &amp; . \\
+                   H_{n1}(\omega) &amp; H_{n2}(\omega)  ...  &amp; H_{nn}(\omega) \\\end{bmatrix}
+\]</span></p>
+<p><strong>Step 4: (option 1): </strong> M. Shinuzuka提出的单索引频率法</p>
+<p>这种算法最简单, 只需互谱密度矩阵进行<span class="math inline">\(N\)</span>次<code>cholesky</code>分解(<span class="math inline">\(n \times n\)</span>阶矩阵). 但是由于频率均匀分布可能导致模拟曲线出现周期性<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. (<em>具体情况尚未进行过详细地分析, 有机会在做吧, 暂且相信文献的结论</em>) <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta \omega} \sum_{m=1}^{j} \sum_{l=1}^{N}|H_{jm}(\omega_{l})cos(\omega_l t + \theta_{jm}(\omega_l) + \phi_{ml})\\
+\omega_l = l\Delta\omega, l = 1,2,3,...,N
+\]</span></p>
+<p><strong>Step 4 (option 2): </strong> Deodatis双索引频率法计算模拟点风速时程</p>
+<p>公式来源于<基于实测风特性的台风模拟>(杨素珍)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 由于option 1可能存在模拟风速时程出现周期性的问题, 引入了双索引频率, 将频率微小扰量均匀分布在频率增量内, 这样既可以采用FFT算法, 又能保证模拟曲线的各态历经性. 但互谱密度矩阵的分解数量将明显提升, 达到<span class="math inline">\(N \times n\)</span>次(<span class="math inline">\(N\)</span>为频率等分数, <span class="math inline">\(n\)</span>为模拟点数), 这样运算量将会增加; (但似乎采用<code>numpy.linalg.cholesky()</code>函数计算效率并不低) <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta\omega}\sum_{m=1}^{j}\sum_{l=1}^{N}|H_{jm}(\omega_{ml})| cos(\omega_{ml}t - \theta(\omega_{ml}) + \phi_{ml})\\
+\phi_{ml}=rand[0,2\pi]\\
+\theta_{jm}=arctan[\frac{Im[H_{jm}(\omega_{ml})]}{Re[H_{jm}(\omega_{ml})]}]\\
+\omega_{ml} = (l-1)\Delta\omega + m/n\Delta\omega, l=1,2,3,...,N
+\]</span> <strong>注意:</strong> 有的文献中将<span class="math inline">\(2\sqrt{\Delta\omega}\)</span>写成<span class="math inline">\(\sqrt{2\Delta\omega}\)</span>这是错的 <strong>注意:</strong> 如果<span class="math inline">\(S(w)\)</span>为实正定矩阵,则<span class="math inline">\(H(w)\)</span>也为实矩阵,因此<span class="math inline">\(\theta_{jm}=0\)</span></p>
+<p>实际上, 在采用双索引算法时,并非<span class="math inline">\(H(\omega_{ml})\)</span>矩阵中的所有元素都将用于最终的谐波叠加. 保留<span class="math inline">\(H(\omega_{ml}\)</span>矩阵中用到的元素, 组成如下有效元素矩阵</p>
+<p><span class="math display">\[
+H^{eff}(w) = \begin{bmatrix} H_{11}(\omega_{1l}) &amp;  0 ...  &amp; 0 \\
+H_{21}(\omega_{1l}) &amp;  H_{22}(\omega_{2l})  ...  &amp; 0 \\
+. &amp; ........ &amp; . \\
+. &amp; ........ &amp; . \\
+H_{n1}(\omega_{1l}) &amp; H_{n2}(\omega_{2l})  ...  &amp; H_{nn}(\omega_{nl}) \\\end{bmatrix}
+\]</span></p>
+<p><strong>采用这种方式合成脉动风速需要多次累加计算, 模拟非常耗时, 尤其是当模拟点数较多时</strong></p>
+<p><strong>Step 4 (option 3): </strong> 采用FFT技术加速风速时程的合成</p>
+<p>公式都是自己推导的, 应该没有问题 实际计算过程中发现整个模拟过程中合成风速时程是比较耗时的, 而采用FFT技术可以显著提升模拟速度 <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta\omega}\sum_{m=1}^{j}\sum_{l=1}^{N}|H_{jm}(\omega)| cos(\omega_{ml}t - \theta(\omega_{ml}) + \phi_{ml})\\
+\]</span></p>
+<p>引入欧拉公式<span class="math inline">\(e^{ix} = cosx + isinx\)</span>,且<span class="math inline">\(\theta_{jm}(\omega_{wl}=0\)</span>, 上式可以改写为 <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta\omega}\sum_{m=1}^{j}\sum_{l=1}^{N}|H_{jm}(\omega_{ml})| Re[e^{i(\omega_{ml}t + \phi_{ml})}]\\
+= Re[2\sqrt{\Delta\omega}\sum_{m=1}^{j}\sum_{l=1}^{N}|H_{jm}(\omega_{ml})| e^{i\omega_{ml}t} e^{i\phi_{ml}}]\\
+=Re[\sum_{m=1}^{j}(\sum_{l=1}^{N} 2 \sqrt{\Delta\omega} |H_{jm}(\omega_{ml})| e^{i\omega_{ml}t} e^{i\phi_{ml} })]
+\]</span></p>
+<p>代入<span class="math inline">\(\omega_{ml} = (l-1)\Delta\omega + \frac{m}{n}\Delta\omega\)</span>, 上式可以改写为 <span class="math display">\[
+V_j(t) = Re[\sum_{m=1}^{j}(\sum_{l=1}^{N} 2 \sqrt{\Delta\omega} |H_{jm}(\omega_{ml})| e^{i((l-1)\Delta\omega + \frac{m}{n}\Delta\omega)t} e^{i\phi_{ml} })]\\
+=Re[\sum_{m=1}^{j}(\sum_{l=1}^{N} 2 \sqrt{\Delta\omega} e^{i\phi_{ml}} |H_{jm}(\omega_{ml})| e^{i((l-1)\Delta\omega t} )e^{i\frac{m}{n}\Delta\omega t} ]\\
+= Re[\sum_{m=1}^{j}G_{jm}(p\Delta t) e^{i\frac{m}{n} \Delta \omega t}]
+\]</span></p>
+<p>注意, 上式中括号内部分刚好是离散傅里叶逆变换的表达式 <span class="math display">\[
+G_{jm} = (\sum_{l=1}^{N} 2 \sqrt{\Delta\omega} e^{i\phi_{ml}} |H_{jm}(\omega_{ml})| e^{i(l-1)\Delta\omega t} )\\
+\]</span></p>
+<p>令<span class="math inline">\(k = l - 1, (k=0,1,2,...,N-1)\)</span> 且 , <span class="math inline">\(B_{jm} = 2 \sqrt{\Delta\omega} e^{i\phi_{ml}} |H_{jm}(\omega_{ml})|, \Delta\omega=\frac{\omega}{N}=\frac{2\pi f}{N}\)</span>,上式可以改写为 <span class="math display">\[
+G_{jm}(p\Delta t) = (\sum_{l=1}^{N}B_{jm} e^{ik\Delta\omega t} ) = (\sum_{k=0}^{N-1}B_{jm} e^{i k \Delta \omega p\Delta t} )
+\]</span></p>
+<p>信号的最长周期<span class="math inline">\(T_0 = \frac{2\pi}{\Delta \omega}\)</span>, 若采样时间间隔为<span class="math inline">\(\Delta t\)</span>, 一个周期内的时间点数为<span class="math inline">\(M = \frac{T_0}{\Delta t}\)</span>, 则 <span class="math display">\[
+T_0 = M \Delta t = \frac{2 \pi}{\Delta \omega}\\
+\Delta t \Delta \omega = \frac{2 \pi}{M}
+\]</span> 带入上上式中 <span class="math display">\[
+G_{jm}(p\Delta t) = (\sum_{l=1}^{N}B_{jm} e^{ik\Delta\omega t} ) = (\sum_{k=0}^{M-1}B_{jm} e^{i kp \frac{2\pi}{M}})\\
+B_{jm} = \left \{ 
+\begin{aligned}
+2 \sqrt{\Delta\omega} e^{i\phi_{ml}} |H_{jm}(\omega_{ml})|, 0 \leq l &lt; N \\
+0,  N \leq &lt; l &lt;M
+\end{aligned}
+\right.
+\]</span> 而离散傅里叶逆变换的表达式为<span class="math inline">\(x(t) = \frac{1}{N} \sum_{n=0}^{N-1} X(n) e^{i\frac{2 \pi}{N} t n}\)</span> 因此, 可以对<span class="math inline">\(B_{jm}\)</span>进行离散傅里叶逆变换从而提高运算效率, (FFT的时间复杂度为<span class="math inline">\(nlog(n)\)</span>).</p>
+<p><strong>说明1:</strong> 在很多文献中对这部分都描述为使用FFT技术加速计算, 然而并未提及到底是使用<code>fft</code>还是<code>ifft</code>; 另一方面在网络上看到的很多代码中, 都是直接使用<code>fft</code>进行计算的. 然而, 依据上述推导过程及表达式, 显然应该使用<code>ifft</code>才比较合理; 另一方面, 从物理意义上看, <code>ifft</code>是将信号从频域转换到时域, 和<span class="math inline">\(B_{jm}转换到G_{jm}\)</span>这个过程也是吻合的. 此外, 为了验证采用<code>ifft</code>的正确性, 对比了直接采用Deodatis双索引公式合成的脉动风和采用<code>ifft</code>合成的脉动风速的时程和频谱, 结果表明二者完全一致, 这足以说明采用<code>ifft</code>的正确性.</p>
+<p><strong>说明2: </strong>在很多文献<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>中<span class="math inline">\(p \Delta t, p=0,2,3,..., M*npts-1\)</span> 生成风速的总时长都为<span class="math inline">\(T=nT_0=npts*M*\Delta t\)</span>, <strong>我没搞懂这个是怎么来的?</strong> 在我推导的表达式中, 模拟时长<span class="math inline">\(T=T_0\)</span>与模拟点数<span class="math inline">\(npts\)</span>并无关系, 实际模拟的结果无论是总能量还是频谱分布都吻合, 所以这个为啥这么做?</p>
+<p><img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig2.png" /></p>
+<p><strong>Step 5 (option 1): </strong>平稳信号模拟的误差分析</p>
+<p>完成全部模拟后, 应当对生成的信号进行误差分析, 以此判断模拟结果的精度, 误差分析应当包含如下几部分内容</p>
+<ol type="1">
+<li>模拟谱与目标谱的对比, 能量分布应当吻合</li>
+</ol>
+<ul>
+<li>绘制模拟谱与目标谱的对比图片</li>
+</ul>
+<ol start="2" type="1">
+<li><p>验证模拟信号是否满足各态历经性</p>
+<p>参考文献<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>根据维纳-辛钦定理, 平稳随机过程的功率谱密度与自相关函数满足如下关系(fft变换): <span class="math display">\[
+FFT: S(\omega) = \int_{-\infty}^{\infty} R(\tau) e^{-i \omega \tau} d\tau\\
+IFFT: R(\tau) = \frac{1}{2\pi} \int_{-\infty} ^{\infty} S(\omega) e^{i \omega \tau} d\omega
+\]</span></p>
+<ul>
+<li>自/互相关函数对比</li>
+</ul>
+<p>ensemble auto-/cross-correlation function <span class="math display">\[
+R_{jk}^{0} (\tau) = R_{jk} (\tau) = \int_{-\infty}^{\infty} {S_{jk}^{0} (\omega) e^{i\omega \tau} d\omega}
+\]</span> temporal auto-/cross-correlation fuction <span class="math display">\[
+R_{jk}^{i}(\tau) = \frac{2} {T_0} \Delta \omega \sum_{m=1} ^{n} \sum_{l=0} ^{N-1} |H_{jm}(\omega_{ml})||H_{km}(\omega_{ml})| cos(\omega_{ml} \tau - \theta_{jm}(\omega_{ml}) + \theta_{km}(\omega_{ml}))\\
+R_{jk}^{i}(\tau) =E[V_j(t) V_k(t + \tau)], j, k = 1, 2, 3, ..., n.
+\]</span></p></li>
+<li><p>相干函数的对比, 空间相关性应该吻合</p>
+<ul>
+<li>相干函数的计算</li>
+</ul>
+<p><span class="math display">\[
+\gamma(w) = \frac{|S_{ij}(\omega)|}{\sqrt{S_{i}(\omega)S_j(\omega)}}
+\]</span></p>
+<p>将上述公式计算的模拟信号之间的相干函数与目标相干函数之间进行对比</p></li>
+</ol>
+<p><strong>注意: </strong>上述比较都是通过比较二者之间的差距进行了, 实际上并没有一个精确的误差度量函数, 或许可以以后提出一个能够衡量随机信号模拟误差的函数</p>
+<p><strong>Step 5 (option 2): </strong>非平稳信号的误差度量</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+尚未完成</li>
+</ul>
+<h2 id="关于一些参数的选择">关于一些参数的选择</h2>
+<h3 id="关于模拟时间间隔delta-t的选取">关于模拟时间间隔<span class="math inline">\(\Delta t\)</span>的选取</h3>
+<p>主要参考文献: <谐波合成法脉动风模拟时间步长的取值>(张军锋)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<h4 id="频率点数n的选取原则">频率点数<span class="math inline">\(N\)</span>的选取原则</h4>
+<p>若模拟时将频率划分为<span class="math inline">\(N\)</span>等份,则合成脉动风场时的频率分辨率为<span class="math inline">\(\Delta\omega=\omega_u/N\)</span>. 显然,<span class="math inline">\(N\)</span>越大, <span class="math inline">\(\Delta\omega\)</span>越小, 模拟结果越精确, 根据Shinozuka<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>的研究当<span class="math inline">\(N&gt;1000\)</span> 之后模拟结果已经足够精确. (需要说明的是, 这个值显然需要考虑<span class="math inline">\(\omega_u\)</span>的大小, <span class="math inline">\(N\)</span>的选取原则还是以<span class="math inline">\(\Delta\omega\)</span>足够小来控制). <span class="math inline">\(N\)</span>越大意味着频率分辨率越高, 结果越能反应目标谱的频率分布特征, 然而<span class="math inline">\(N\)</span>越大, 需要进行cholesky分解的次数就越多, 合成风速时程的运算量也会相应增加, 模拟越耗时.</p>
+<p>另一方面, 频率点数<span class="math inline">\(N\)</span>对模拟结果的影响直接体现在结果的统计特征上, 下表给出了改变<span class="math inline">\(N\)</span>时, 生成信号的均值和标准的变化. 同时也给出了功率谱</p>
+<p>Table1. 均值随<span class="math inline">\(N\)</span>的变化</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">z/m</th>
+<th style="text-align: center;"><span class="math inline">\(N=2048, M=8192\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=4096\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=8192, M=16384\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=2048, M=16384\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">-0.66821262</td>
+<td style="text-align: center;">-0.3449268</td>
+<td style="text-align: center;">-0.16279961</td>
+<td style="text-align: center;">-0.66799636</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">-0.56113631</td>
+<td style="text-align: center;">-0.37252204</td>
+<td style="text-align: center;">-0.16406671</td>
+<td style="text-align: center;">-0.5607632</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">-0.57451271</td>
+<td style="text-align: center;">-0.36096364</td>
+<td style="text-align: center;">-0.14268815</td>
+<td style="text-align: center;">-0.57402902</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">-0.6081656</td>
+<td style="text-align: center;">-0.38176085</td>
+<td style="text-align: center;">-0.14132875</td>
+<td style="text-align: center;">-0.60777049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">-0.60592006</td>
+<td style="text-align: center;">-0.38206021</td>
+<td style="text-align: center;">-0.14138088</td>
+<td style="text-align: center;">-0.60559317</td>
+</tr>
+</tbody>
+</table>
+<p>Table1. 标准差随<span class="math inline">\(N\)</span>的变化</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">z/m</th>
+<th style="text-align: center;"><span class="math inline">\(N=2048, M=8192\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=4096\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=8192, M=16384\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(N=2048, M=16384\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">3.87999986</td>
+<td style="text-align: center;">4.06380318</td>
+<td style="text-align: center;">4.1359681</td>
+<td style="text-align: center;">3.88004574</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">3.63991524</td>
+<td style="text-align: center;">4.17707677</td>
+<td style="text-align: center;">4.27935855</td>
+<td style="text-align: center;">3.63988511</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">3.77922552</td>
+<td style="text-align: center;">4.2882123</td>
+<td style="text-align: center;">4.29608268</td>
+<td style="text-align: center;">3.77915903</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">3.86934391</td>
+<td style="text-align: center;">4.26617434</td>
+<td style="text-align: center;">4.24411591</td>
+<td style="text-align: center;">3.86924546</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">3.91308826</td>
+<td style="text-align: center;">4.25154157</td>
+<td style="text-align: center;">4.28752741</td>
+<td style="text-align: center;">3.91299012</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig3.svg" /></p>
+<p>Fig.3 <span class="math inline">\(N = 2048, M=16384\)</span></p>
+<p><img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig4.svg" /></p>
+<p>Fig.4 <span class="math inline">\(N = 4096, M=16384\)</span></p>
+<p><img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig5.svg" /></p>
+<p>Fig.5 <span class="math inline">\(N = 8192, M=16384\)</span></p>
+<p>从Table1和Table2中可以看出, 随着<span class="math inline">\(N\)</span>增加生成信号的均值逐渐趋于0, 标准差也逐渐趋于稳定; 而改变时间点数<span class="math inline">\(M\)</span>对模拟结果影响非常小. 从频谱图中可以看出, 对于本算例, <span class="math inline">\(N &gt; 2048\)</span>后, <span class="math inline">\(N\)</span>基本不影响功率谱的模拟.</p>
+<p>考察合成公式 <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta\omega}\sum_{m=1}^{j}\sum_{l=1}^{N}|H_{jm}(\omega)| cos(\omega_{ml}t - \theta(\omega_{ml}) + \phi_{ml})\\
+\]</span> 谐波合成法的本质是以功率谱密度为加权系数, 通过一系列余弦信号的叠加来模拟脉动风速. 而实际过程中, 功率谱在频域内被离散为一系列频率点处的取值, 然后以离散的功率谱去逼近连续的功率谱, 在这个过程中不可避免的会产生误差. 具体就体现在, 生成的脉动风速时程的均值不为0. <strong>本程序建议先通过试算生成信号的湍流强度<span class="math inline">\(I_u\)</span>是否满足要求, 以此作为<span class="math inline">\(N\)</span>的取值参考. 同时, 本程序中也会强制将生成信号的均值置为0, 使用时请务必注意.</strong></p>
+<h4 id="时间点数m的选取原则">时间点数<span class="math inline">\(M\)</span>的选取原则</h4>
+<p><strong>采用WAWS生成的脉动风场可以理解为一个模拟信号<span class="math inline">\(V_j(t)\)</span>(该信号在时间上连续的), 这个信号的频率上限为<span class="math inline">\(\omega_{u}\)</span>, 包含<span class="math inline">\(n\omega_{u}/N, n=0,1,2,...,N\)</span>个频率成分. 而最终使用的是从<span class="math inline">\(V_j(t)\)</span>采样得到的离散的数字信号,所以应该遵从采样定理.</strong></p>
+<p>根据合成公式, 生成的信号在每个频率点的周期为<span class="math inline">\(T_l = 2 \pi / \omega_l = 2 \pi N / l \omega_u\)</span>, 叠加后的脉动风场也是周期函数, 其中的最长周期为 <span class="math display">\[
+T_0 = \frac{2 \pi}{\omega_1} = \frac{2 \pi}{\Delta \omega} = \frac{2 \pi N}{\omega_u}
+\]</span> 定义<span class="math inline">\(M\)</span>为最长周期内的时间点数量, 即 <span class="math display">\[
+T_0 = M \Delta t = \frac{2 \pi} {\Delta \omega} = \frac{2 \pi N}{\omega_u}\\
+\Delta t = \frac{2 \pi} {\Delta \omega M} = \frac{2 \pi N}{\omega_u M} = \frac{1}{a} \frac{2 \pi}{\omega_u}, a =\frac{M}{N}
+\]</span></p>
+<p>根据采样定理, 为了避免频率混叠, 从<span class="math inline">\(V_{j}(t)\)</span>采样的采样频率必须满足如下关系 <span class="math display">\[
+f_{s} \geq 2 f_{u} = 2 \frac{\omega_{u}}{2\pi}=\frac{\omega_{u}}{\pi}
+\]</span> 因此 <span class="math display">\[
+\Delta t = \frac{1}{f_s} \leq \frac{\pi}{\omega_u}
+\]</span> <strong>注意:</strong>WAWS生成的模拟信号所包含的最高频率成分也仅为<span class="math inline">\(\omega_u\)</span>, 采样得到的数字信号中的频率成分为<span class="math inline">\([0, \frac{f_s}{2}]\)</span>, 而其中高于<span class="math inline">\(\omega_u=2\pi f_u\)</span>的部分都是虚假的(无效的)</p>
+<p>模拟信号总持时: <span class="math display">\[
+T_0 = M \Delta t
+\]</span> 根据上述公式, <span class="math inline">\(\Delta t\)</span>的选取只要满足采样定理就一定能保证生成的脉动风的功率谱密度与目标谱一致. 然而, 考虑到模拟的脉动风速时程主要用于结构动力时程分析, 因此<span class="math inline">\(\Delta t\)</span> 的选择还应该考虑是否会影响结构计算的精度, 张军锋<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>针对这个问题进行了研究, 在此只给出他的研究结论:</p>
+<ol type="1">
+<li><span class="math inline">\(M/N \geq 2\)</span>后, <span class="math inline">\(M/N\)</span>比值并不影响生成的脉动风功率谱密度与目标谱的一致性;但对应的<span class="math inline">\(\Delta t\)</span>可能在动力时程计算中无法准确计入结构的共振响应,尤其当需要计及的结构频率在<span class="math inline">\(\omega_u\)</span>附近时. 且如果<span class="math inline">\(\Delta t\)</span>过大, 即使在动态时程分析时增加荷载子步(阶跃荷载或线性插值,原文采用ANSYS进行分析)也无法准确计入共振效应,必须减小模拟脉动风的采样间隔<span class="math inline">\(\Delta t\)</span></li>
+<li>对单自由度系统而言, 当<span class="math inline">\(M/N \geq 8\)</span>之后, 通过模拟风速时程计算的系统响应与理论解非常接近, 可以作为<span class="math inline">\(M/N\)</span>取值的参考; 单自由度弹簧振子模型对<span class="math inline">\(\Delta t\)</span>的要求最为苛刻, 可以作为普通结构的上限</li>
+</ol>
+<h4 id="模拟中时频参数选取建议和实施步骤">模拟中时频参数选取建议和实施步骤</h4>
+<p>根据上述分析, 关于<span class="math inline">\(M, N\)</span>的选取可以按照如下步骤执行</p>
+<ul>
+<li><strong>Step 1: 合理确定周期<span class="math inline">\(T_0\)</span>(模拟风速总时长<span class="math inline">\(T\)</span>), 一般有<span class="math inline">\(T_0 \geq T = 600 s\)</span></strong>
+<ul>
+<li>通过WAWS生成的脉动风荷载主要用于结构的抖振分析, 因而10min以上的平均才具有统计意义</li>
+<li><em>对于非平稳风场,还需了解更多文献</em></li>
+</ul></li>
+<li><strong>Step 2: 确定截止频率上限<span class="math inline">\(\omega_u = 2 \pi f_u\)</span>, <span class="math inline">\(f_u \geq f_{struct}\)</span></strong>
+<ul>
+<li><span class="math inline">\(f_{struct}\)</span>为所关心的结构频率. 如对输电塔而言, <span class="math inline">\(f_{struct}\)</span>可以取1阶扭转频率, 但如果需要计入高阶模态的影响,则应该考虑更高阶模态频率</li>
+</ul></li>
+<li><strong>Step 3: 确定频率点<span class="math inline">\(N\)</span>, 通常可以取 <span class="math inline">\(N = 1024\)</span> 或<span class="math inline">\(N=2048\)</span> (确保<span class="math inline">\(N &gt;1000\)</span>)</strong>
+<ul>
+<li><p>注意<span class="math inline">\(N\)</span>越大模拟越精确,但是也更耗时</p></li>
+<li><p><span class="math inline">\(N\)</span>将直接影响生成的脉动风速时程的均值和方差, 建议先通过试算生成信号的湍流强度<span class="math inline">\(I_u\)</span>是否满足要求, 以此确定<span class="math inline">\(N\)</span>的取值</p></li>
+<li><p>频率点数<span class="math inline">\(N\)</span>直接影响生成的脉动风信号的最长周期<span class="math inline">\(T_0=\frac{2 \pi N}{\omega_u}\)</span> , 因此选择<span class="math inline">\(N\)</span>需要考虑到<span class="math inline">\(T_0 &gt; T\)</span></p></li>
+</ul></li>
+<li><strong>Step 4: 确定模拟时间点, 可以取<span class="math inline">\(M = 8N\)</span>(确保<span class="math inline">\(M\geq2N\)</span>)</strong></li>
+</ul>
+<p>按照上述步骤确定相关参数取值后: <span class="math display">\[
+\Delta \omega = \frac{\omega_u}{N} \\
+\Delta t = \frac{T_0}{M}
+\]</span> ### 关于角频率$<span class="math inline">\(和频率\)</span>f$, 频谱, 功率谱等</p>
+<p>角频率或称圆频率<span class="math inline">\(\omega (rad/s)\)</span>与频率<span class="math inline">\(f (Hz)\)</span>之间存在如下关系: <span class="math display">\[
+\omega = 2 \pi f
+\]</span> 如果输入的风谱和相干函数为频率的函数,即<span class="math inline">\(S(f), coh(f)\)</span>, 那么经过cholesky分解后得到的下三角矩阵也应该为频率的函数<span class="math inline">\(H(f)\)</span>, 因而在合成脉动风速时, 应该按照频率进行叠加 <span class="math display">\[
+V_j(t) = 2\sqrt{\Delta f}\sum_{m=1}^{j}\sum_{l=1}^{N}\lvert H_{jm}(f) \rvert cos(\omega_{ml}t - \theta(\omega_{ml}) + \phi_{ml})
+\]</span> 而<span class="math inline">\(\Delta f = \Delta \omega / (2\pi)\)</span></p>
+<p>另一方面, 如果输入的风谱和相干函数为角频率的函数,即<span class="math inline">\(S(w), coh(w)\)</span>, 那么采用则完全按照角频率的公式进行计算. 然而需要注意的是, 对生成的脉动风信号进行频谱分析时(采用scipy.signal.welch), 得到的是S(f); 而目标谱则为<span class="math inline">\(S(w)\)</span>, 进行比较时需将二者统一.</p>
+<h4 id="两种频率表示的频谱fomega和ff">两种频率表示的频谱<span class="math inline">\(F(\omega)\)</span>和<span class="math inline">\(F(f)\)</span></h4>
+<p>若存在随机信号<span class="math inline">\(f(t), t\in (-\infty, \infty)\)</span> 满足狄氏条件(信号存在傅里叶变换的<strong>充分不必要</strong>条件), 且绝对可积 <span class="math display">\[
+\int_{-\infty}^{\infty}|f(t)|dt &lt; \infty
+\]</span> <span class="math inline">\(f(t)\)</span>的傅里叶逆变换为 $$ f(t) =  <em>{-}<sup>{}F()e</sup>{jt}d= </em>{-}^{}F(f) e^{j2ft}df \\</p>
+<p>傅里叶变换:\\ F() = <em>{-}<sup>{}f(t)e</sup>{-jwt}dt \ F(f) = </em>{-}^{}f(t) e^{-j2ft}dt $$ 可以发现, 信号<span class="math inline">\(f(t)\)</span>的频谱用<span class="math inline">\(\omega\)</span>和<span class="math inline">\(f\)</span>表示时存在一个压缩关系, 相差<span class="math inline">\(2\pi\)</span>倍, 即<span class="math inline">\(F(\omega)\)</span>和<span class="math inline">\(F(f)\)</span>并不相等</p>
+<h4 id="两种频率表示的功率谱密度pomega和pf">两种频率表示的功率谱密度<span class="math inline">\(P(\omega)\)</span>和<span class="math inline">\(P(f)\)</span></h4>
+<p>从能量角度出发(信号满足Parseval定理), 信号在一个周期内的总能量如下 <span class="math display">\[
+E_T = \int_{-\infty}^{\infty}f^2(t)dt = \frac{1}{2\pi} \int_{-\infty}^{\infty}|F(\omega)|^2d\omega = \int_{-\infty}^{\infty}|F(f)|^2df
+\]</span> 上式的含义是, 信号在时域内的能量与频域内的能量相等</p>
+<p>那么一个周期内的平均功率如下 <span class="math display">\[
+P = \lim\limits_{T\to\infty} \int_{-T/2}^{T/2} \frac{1}{T} f^2(t)dt = \frac{1}{2\pi} \int_{-\infty}^{\infty} \lim\limits_{T\to\infty} \frac{1}{T}|F(\omega)|^2d\omega = \int_{-\infty}^{\infty} \lim\limits_{T\to\infty} \frac{1}{T} |F(f)|^2df
+\]</span> <span class="math inline">\(f(t)\)</span>的功率谱 <span class="math display">\[
+P(\omega) = \lim\limits_{T\to\infty} \frac{|F(\omega)|^2}{2\pi T} \\
+P(f) = \lim\limits_{T\to\infty} \frac{|F(f)|^2}{T}
+\]</span> 注意: <span class="math inline">\(P(\omega)\)</span>与<span class="math inline">\(P(f)\)</span>并不相等 <span class="math display">\[
+P = \int_{-\infty}^{\infty}P(\omega)d\omega = \int_{-\infty}^{\infty} P(f)df\\
+P(f) = 2\pi P(\omega)
+\]</span> <img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig1.jpg" /></p>
+<p><span class="math display">\[PSD = \lim_{T\to\infty}\frac{E[|\hat{f_{T}}(\omega)|^2]}{2T}\]</span></p>
+<p>正如示意图所示, 同一信号的功率谱密度<span class="math inline">\(P(f)\)</span>和<span class="math inline">\(P(\omega)\)</span>所蕴含的总能量应该是相等的</p>
+<p>另一方面从相关关系的角度也能得出相同的关系 <span class="math display">\[
+P(\omega) = \frac{1}{2\pi} \int Rxx(\tau) e^{-j\omega \tau} d\tau \\
+P(f) =\int Rxx(\tau) e^{-j2\pi f\tau} d\tau \\
+P(f) = 2\pi P(\omega)
+\]</span> 也即是说<span class="math inline">\(P(f)\)</span>与<span class="math inline">\(P(\omega)\)</span>不是同一个函数, 为了方面理解可以改写为<span class="math inline">\(P_f(f)\)</span>和<span class="math inline">\(P_{\omega}(f)\)</span>. 同理, 对于风速谱<span class="math inline">\(S(f)\)</span>与<span class="math inline">\(S(\omega)\)</span>也存在相同的关系. 实际工程中通常将风速谱表示为物理频率<span class="math inline">\(f\)</span>的函数, 如Davenport谱 <span class="math display">\[
+\frac{f S_f(f)} {\sigma_u^2} = \frac{2x^2}{3(1 + x^2)^{\frac{4}{3}}}\\
+x = \frac{fL_u}{\bar{v}}\\
+L = 1200 m
+\]</span> 上式中, 可以用<span class="math inline">\(\omega=2\pi f\)</span>进行替换得到<span class="math inline">\(S_f(\omega)\)</span>, 但需要注意得到的函数<span class="math inline">\(S_f(\omega)\)</span>并不等于<span class="math inline">\(S_{\omega}(\omega)\)</span>, 二者还存在一个<span class="math inline">\(2\pi\)</span>的系数, 两者之间的真实关系如下 <span class="math display">\[
+S_f(f)=S_f(\omega) = 2\pi S_{\omega}(\omega)
+\]</span></p>
+<h4 id="单边谱与双边谱">单边谱与双边谱</h4>
+<p>现实世界不存在负频率 <span class="math display">\[
+P_{oneside}(\omega) = 2P_{twoside}(\omega)
+\]</span></p>
+<h4 id="程序中关于风谱的使用说明">程序中关于风谱的使用说明</h4>
+<ol type="1">
+<li>风工程中的风谱多表示成物理频率<span class="math inline">\(f\)</span>的函数, 因此本程序编写的风谱函数均为<span class="math inline">\(S_f(f)\)</span>, 在使用自编的风谱函数时,请务必注意</li>
+<li>风谱函数<span class="math inline">\(S_f(f)\)</span>为单边谱, 而在生成互谱密度矩阵时采用的是双边谱, 因此需要<span class="math inline">\(S_f(f)/2\)</span></li>
+<li>考虑到上述谐波合成法理论中, 风谱均表示为角频率<span class="math inline">\(\omega\)</span>的函数, 因此在<code>GustWindField class</code>中将输入的目标功率谱<span class="math inline">\(S_f(f)\)</span>转换为<span class="math inline">\(S_{\omega}(\omega)\)</span></li>
+<li>为了减少计算量, 按照风谱函数计算的目标将存储在<code>target</code>属性中, 对比生成信号功率谱和目标功率谱一致性时, 将直接调用这个数据</li>
+<li>生成信号的功率谱采用welch方法计算(<code>scipy.singal.welch</code>), 得到的结果是<span class="math inline">\(S_v(f)\)</span>; 因此将<code>target</code>中存储的数据转换后进行对比, 具体方法为: 横坐标<span class="math inline">\(f=\omega/(2\pi)\)</span>, 纵坐标: <span class="math inline">\(S_v(f) = target * 2 \pi\)</span>; (具体原理见2.2节)</li>
+</ol>
+<h3 id="waws合成法的加速">WAWS合成法的加速</h3>
+<p>根据文献<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>Deodatis引入双索引频率的目的在于减小模拟样本的周期性, 同时可以实现生成的脉动风场的各态历经性. 从下面的表达式可以看出, 如果 <span class="math display">\[
+V_j(t) = 2\sqrt(\Delta \omega) \sum_{m=1}^{j} \sum_{l=1}^{N}|H_{jm}(\omega_{l})cos(\omega_l t + \theta_{jm}(\omega_l) + \phi_{ml})\\
+\omega_l = l\Delta\omega, l = 1,2,3,...,N
+\]</span> 然而引入双索引频率<span class="math inline">\(\omega_{ml}, m=1, 2, ..., npts; l = 1, 2, 3, ..., N\)</span>后, <code>cholesky</code>分解的运算量将从<span class="math inline">\(N\)</span>次陡增到<span class="math inline">\(npts \times N\)</span>次.</p>
+<p><code>cholesky</code>分解算法的最优时间复杂度为<span class="math inline">\(o(n^3)\)</span>,<span class="math inline">\(n\)</span> 为矩阵维度. 因此当需要模拟的点数较多时, 整个算法将变得非常耗时. 为了提升<code>WAWS</code>的计算效率, 一些加速算法被相继提出来, 这些算法主要分为两类, 一类是对<span class="math inline">\(H(\omega)\)</span>进行插值, 从而达到减少<code>cholesky</code>分解次数的目的; 另一类是对<span class="math inline">\(S_{ij}(\omega)\)</span>矩阵进行降维度(主要采用<code>POD</code>算法), 进而合成脉动风荷载. 关于这方面的研究很多<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>, 本程序暂且没有考虑通过算法优化的方式来加速计算, 而是直接采用了并行计算来加速<span class="math inline">\(H(\omega)\)</span>矩阵的分解, 这样做的目的一方面是避免插值或者<code>POD</code>带来的误差, 另一方面是可以充分利用现有的计算资源.</p>
+<p><code>WAWS</code>算法中另一处比较耗时的计算在于脉动风荷载的合成, 尤其是当模拟点<span class="math inline">\(npts\)</span>, 频率点<span class="math inline">\(N\)</span>和时间点<span class="math inline">\(M\)</span>都比较多时, 采用<code>ifft</code>算法可以显著降低这部分耗时, 程序中也默认使用这一方法.</p>
+<h3 id="风场相关参数的选择">风场相关参数的选择</h3>
+<p>主要参考文献<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>, 文章中很多关于规范的取值都是基于较早的规范的, (暂时用不上所以没有更新, 欢迎大家更新或者留言)</p>
+<h4 id="平均风剖面">平均风剖面</h4>
+<p>本程序仅支持指数律风剖面(且并未留有相关的接口用于改变风剖面的计算, 使用者若想修改请自行阅读和修改源码) <span class="math display">\[
+\bar{v} = \bar{v}_s (\frac{z}{z_s}) ^ \alpha = \bar{v}_{10} (\frac{z}{z_{10}}) ^ \alpha
+\]</span> Table 3. 各国规范中的风剖面指数<span class="math inline">\(\alpha\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>粗糙度类别</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>中国 GB50009-2012</td>
+<td>0.12</td>
+<td>0.15</td>
+<td>0.22</td>
+<td>0.30</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>D</strong></td>
+<td><strong>C</strong></td>
+<td><strong>B</strong></td>
+<td><strong>A</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>美国 ASCE7-95</td>
+<td>1/9.0</td>
+<td>1/6.5</td>
+<td>1/4.0</td>
+<td>1/3.0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>I</strong></td>
+<td><strong>II</strong></td>
+<td><strong>III</strong></td>
+<td><strong>IV</strong></td>
+<td><strong>V</strong></td>
+</tr>
+<tr class="odd">
+<td>日本建筑学会 1993</td>
+<td>0.10</td>
+<td>0.15</td>
+<td>0.20</td>
+<td>0.27</td>
+<td>0.35</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4. 各国规范中的梯度风高度</p>
+<table>
+<thead>
+<tr class="header">
+<th>粗糙度类别</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>中国 GB50009-2012 (m)</td>
+<td>300</td>
+<td>350</td>
+<td>450</td>
+<td>550</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>D</strong></td>
+<td><strong>C</strong></td>
+<td><strong>B</strong></td>
+<td><strong>A</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>美国 ASCE7-95 (ft/m)</td>
+<td>700/213</td>
+<td>900/274</td>
+<td>1200/366</td>
+<td>1500/457</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>粗糙度类别</strong></td>
+<td><strong>I</strong></td>
+<td><strong>II</strong></td>
+<td><strong>III</strong></td>
+<td><strong>IV</strong></td>
+<td><strong>V</strong></td>
+</tr>
+<tr class="odd">
+<td>日本建筑学会 1993 (m)</td>
+<td>250</td>
+<td>350</td>
+<td>450</td>
+<td>550</td>
+<td>650</td>
+</tr>
+</tbody>
+</table>
+<h4 id="湍流强度">湍流强度</h4>
+<p>对高耸结构而言, 其抖振响应主要受到湍流强度的影响, 因此在模拟脉动风场时, 应当准确反应湍流强度的基本特征(主要是沿高度的变化). <strong>以下皆为个人理解, 未在文献中看到明确说明:</strong> 在模拟风场时, 应当指定湍流强度随高度的变化特征, 然后在计算风谱时应该使得各高度处的风谱满足<span class="math inline">\(\int_0^{\infty}S_u(\omega)d\omega = \sigma_u^2\)</span>. 在完成风速合成后, 也应该检查生成的风场的湍流强度与指定的湍流强度之间是否吻合.</p>
+<p>湍流强度的定义如下 <span class="math display">\[
+I_u(z) = \frac{\sigma_u(z)}{\bar{v}(z)}
+\]</span> 式中, <span class="math inline">\(\sigma_u(z)\)</span>为脉动风速标准差, <span class="math inline">\(\bar{v}(z)\)</span>为<span class="math inline">\(z\)</span>高度处的平均风速</p>
+<p>随着高度的增加, <span class="math inline">\(\sigma_u(z)\)</span>略有减小, 而平均风速<span class="math inline">\(\bar{v}(z)\)</span>则递增, 所以湍流强度是随高度增加而减小的. 通常可以表示成如下指数函数 <span class="math display">\[
+I_u(z) = c (\frac{z}{10})^{-d}
+\]</span> 式中, <span class="math inline">\(c,d\)</span>是与地形地貌有关的参数</p>
+<p>中国规范中的湍流强度表达式(GB50009-2012) <span class="math display">\[
+I_u(z) = I_{10} \bar{I}_z(z) = I_{10} (\frac{z} {10}) ^{-\alpha}
+\]</span> <span class="math inline">\(\alpha\)</span>为地面粗糙度指数, 按Table 3取值</p>
+<p>Table 5. 各国湍流强度特征参数 (<span class="math inline">\(c\)</span>, 中国规范中的<span class="math inline">\(I_{10}\)</span>)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">粗糙度类别</th>
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">中国 GB50009-2012, <span class="math inline">\(I_{10}\)</span></td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">0.14</td>
+<td style="text-align: center;">0.23</td>
+<td style="text-align: center;">0.39</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>粗糙度类别</strong></td>
+<td style="text-align: center;"><strong>D</strong></td>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: center;"><strong>B</strong></td>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">美国 ASCE7-95, <span class="math inline">\(c\)</span></td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">0.45</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: center;">0.167</td>
+<td style="text-align: center;">0.167</td>
+<td style="text-align: center;">0.167</td>
+<td style="text-align: center;">0.167</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>粗糙度类别</strong></td>
+<td style="text-align: center;"><strong>I</strong></td>
+<td style="text-align: center;"><strong>II</strong></td>
+<td style="text-align: center;"><strong>III</strong></td>
+<td style="text-align: center;"><strong>IV</strong></td>
+<td style="text-align: center;"><strong>V</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">日本建筑学会 1993 , <span class="math inline">\(c\)</span></td>
+<td style="text-align: center;">0.162</td>
+<td style="text-align: center;">0.203</td>
+<td style="text-align: center;">0.259</td>
+<td style="text-align: center;">0.361</td>
+<td style="text-align: center;">0.531</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;">0.20</td>
+<td style="text-align: center;">0.25</td>
+<td style="text-align: center;">0.32</td>
+<td style="text-align: center;">0.40</td>
+</tr>
+</tbody>
+</table>
+<h4 id="积分尺度">积分尺度</h4>
+<p>湍流积分尺度是气流中湍流涡旋平均尺寸的量度, 湍流积分尺度的定义如下</p>
+<p><span class="math display">\[
+L_u^e = \frac{1}{\sigma_u^2} \int_0^{\infty} R_{u_1 u_2}(r)dr
+\]</span> 式中, <span class="math inline">\(u\)</span>为顺风向脉动风速分量; <span class="math inline">\(\sigma_u\)</span>为脉动风速的标准差; <span class="math inline">\(R_{u_1 u_2}(r)\)</span> 为互相关函数; <span class="math inline">\(e\)</span>为与顺风向脉动风速分量有关的旋涡方向, 一共三个, 分别是顺风向, 横风向, 竖向. 同理另外两个脉动风速分量也分别有三个旋涡方向; 也即是湍流积分尺度共有9个.</p>
+<p>由于我国规范采用与积分尺度不随高度变化的Davenport谱, 因此没有规定湍流积分尺度的表达式, 其他国家的规范如下</p>
+<p>美国ASCE7: <span class="math inline">\(L_{\bar{z}} = l (\frac{\bar{z}}{10})^ {\bar{\epsilon}}\)</span>, <span class="math inline">\(l, \bar{\epsilon}\)</span>取决于地形</p>
+<p>日本RLB-AIJ: <span class="math inline">\(L_H = 100 (\frac{H}{30})^{0.5}\)</span></p>
+<h4 id="脉动风速谱">脉动风速谱</h4>
+<p>自然界某一时段内的脉动风速可以用平稳随机过程来模拟，因此脉动风功率谱就成为表达脉动风速特性的主要方式. 采用WAWS合成脉动风速时程时, 最重要的参数便是风谱.</p>
+<p>目前各国规范中主要采用的顺风向风速谱如下:</p>
+<ol type="1">
+<li>Davenport谱</li>
+</ol>
+<p><span class="math display">\[
+\frac{n S_u(n)} {\sigma_u^2} = \frac{2x^2}{3(1 + x^2)^{\frac{4}{3}}}\\
+x = \frac{nL_u}{\bar{v}_{10}}\\
+L = 1200 m
+\]</span></p>
+<p>Davenport谱假定湍流积分尺度<span class="math inline">\(L\)</span>不随高度改变, 取为1200m, 中国规范采用Davenport谱.</p>
+<ol start="2" type="1">
+<li>Kaimal谱</li>
+</ol>
+<p><span class="math display">\[
+\frac{n S_u(n)} {\sigma_u^2} = \frac{a_1 x}{(1 + a_2 x)^{\frac{5}{3}}}\\
+x = \frac{nL_u}{\bar{v}}\\
+l_{\bar{z}} = l (\frac{\bar{z}}{10})^{\bar{\epsilon}}
+a_1 = 6.868, a_2 = 10.302
+\]</span> 美国规范采用该谱, 欧洲规范也采用该谱</p>
+<table>
+<thead>
+<tr class="header">
+<th>地形</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(l (ft)\)</span></td>
+<td>54.864</td>
+<td>97.536</td>
+<td>152.400</td>
+<td>198.120</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\epsilon\)</span></td>
+<td>1/0.6096</td>
+<td>1/0.9144</td>
+<td>1/1.5240</td>
+<td>1/2.4384</td>
+</tr>
+</tbody>
+</table>
+<p>注：美国规范中地形类别的 A、 B、 C、 D，分别对应着我国规范中的 D、 C、 B、 A 类别</p>
+<ol start="3" type="1">
+<li>Von Karman谱</li>
+</ol>
+<p><span class="math display">\[
+\frac{n S_u(n)} {\sigma_u^2} = \frac{4x}{(1 + 70.8 x^2)^{\frac{5}{6}}}\\
+x = \frac{nL_u}{\bar{v}}\\
+L_u = L_H = 100 (\frac{H}{30})^{0.5}
+\]</span></p>
+<p>日本规范采用该谱</p>
+<ol start="4" type="1">
+<li>Harris谱</li>
+</ol>
+<p><span class="math display">\[
+\frac{n S_u(n)} {\sigma_u^2} = \frac{0.6x}{(2 + x^2)^{\frac{5}{6}}}\\
+x = \frac{nL_u}{\bar{v}}\\
+L = 1800 m
+\]</span></p>
+<p>澳大利亚规范采用该谱</p>
+<ol start="5" type="1">
+<li>Simiu谱 <strong>不保证对, 请自行核实</strong></li>
+</ol>
+<p><span class="math display">\[
+\frac{n S_u(n)} {\sigma_u^2} = \left \{
+\begin{aligned}
+\frac{100x}{3(1 + 50 x)^{\frac{5}{3}}}, x \leq 0.2\\
+\frac{0.0433}{x ^{2/3}}, x &gt; 0.2\\
+\end{aligned}
+\right. \\
+x = \frac{nz}{\bar{v}}\\
+\]</span></p>
+<p>理想的谱形式应该满足以下三个条件: <span class="math display">\[
+条件1\quad \int_0^{\infty} \frac{S_u(n)}{\sigma_u^2} dn = 1 \\
+条件2\quad S_u(0) = 4 \sigma_u^2 \frac{L_u}{\bar{v}} \\
+条件3\quad \frac{n S_u(n)} {\sigma_u^2} = A (\frac{nL_u}{\bar{v}})^{-2/3}, A=0.10~0.15\\
+\]</span></p>
+<p><strong>条件1为必要条件</strong>, 可以保证脉动风速的方差等于曲线<span class="math inline">\(S_u(n)\)</span>所覆盖的面积, 并与湍流强度相容; 条件2可以通过自相关函数和谱密度之间的维纳-辛钦关系得到. 条件3要求高频部分满足该式的形式, 主要和结构响应有关</p>
+<p>总体来说, Davenport谱和Harris谱不随高度变化, Von Karman谱和Kaimal谱考虑了湍流积分尺度随高度的变化. Davenport谱的谱值偏大, 可能会过高的轨迹结构的抖振响应, 致使计算结果偏于保守. Von Karman 谱是一种理想的形式, 只有它满足上述3个条件<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>. ben</p>
+<h4 id="空间相关性">空间相关性</h4>
+<p>相干函数定义如下 <span class="math display">\[
+\rho_{xy} (\omega) = \frac{S_{xy}(\omega)}{\sqrt{S_x(\omega)S_y(\omega)}}\\
+0 \leq \rho_{xy}(\omega) \leq 1
+\]</span></p>
+<ol type="1">
+<li>Davenport相关函数</li>
+</ol>
+<p><span class="math display">\[
+\rho(n) = exp[\frac{-n \sqrt{c_x^2 (x_1 - x_2)^2 + c_z^2 (z_1 - z_2)^2}}{\bar{v}_1 \bar{v}_2}]\\
+c_x = 8, c_z = 7
+\]</span></p>
+<ol start="2" type="1">
+<li>Shiotani相关函数 - 与频率无关 <span class="math display">\[
+\rho_z = exp[\frac{-|z_1 - z_2|} {60}]\\
+\rho_x = exp[\frac{-|x_1 - x_2|} {50}]\\
+\]</span> 我国建筑结构荷载规范(GB50009-2012)采用改相关函数</li>
+</ol>
+<p>本程序中暂时只实现了Davenport相关函数</p>
+<h4 id="风场相关参数的选择建议">风场相关参数的选择建议</h4>
+<p><strong>总体原则: </strong></p>
+<ol type="1">
+<li>选择风场相关参数时, 可以根据需要使用的<strong>规范</strong>来确定相关参数的取值</li>
+<li>鉴于本人的需求, 目前只简单的实现了风谱的自定义功能, 即用户可以根据自己的需求编写风谱函数, 然后在模拟时调用. 其他参数都是直接在<code>GustWindField clas</code>内部集成, 用户如果需要使用其他自定义参数, 需要自行在源码中修改</li>
+<li>本人目前只需要用到中国规范, 因此只能保证程序中关于中国规范的参数是正确的, 其余的参数还请使用者自行检查</li>
+</ol>
+<p><strong>补充:</strong>目前关于自定义风谱的实现非常粗略, 采用的是<code>eval()</code>函数, 以后应该会修改为直接传递风谱(或其他)函数作为参数, 从而实现自定义参数的输入</p>
+<p><strong>一些细节:</strong></p>
+<ol type="1">
+<li><p>平均风剖面: 仅支持<strong>指数律</strong></p>
+<ul>
+<li>需要输入<span class="math inline">\(v_{10}\)</span>和风剖面指数<span class="math inline">\(\alpha\)</span>两个参数, 见Table 3</li>
+</ul></li>
+<li><p>湍流强度</p>
+<ul>
+<li>需要输入<span class="math inline">\(I_{10}或(c), d\)</span>两个参数, 见Table 5</li>
+<li>湍流强度沿高度的变化将直接反应到风谱中, 最终生成的风场的湍流强度也应该与输入的湍流强度吻合</li>
+</ul></li>
+<li><p>脉动风谱和积分尺度</p>
+<ul>
+<li>前文给出的风谱<span class="math inline">\(S(n)\)</span>都是物理频率<span class="math inline">\(n\)</span>的函数, 本程序在使用时都先转换成了圆频率的函数<span class="math inline">\(S(\omega)\)</span>(见2.2.4节, <span class="math inline">\(\omega = 2 \pi n\)</span>)</li>
+<li>根据第2条, 在计算风谱时, 将直接给定该高度处的湍流强度值</li>
+<li>积分尺度的选择可以按照各风谱的规定进行选择</li>
+</ul></li>
+<li><p>空间相关性</p>
+<ul>
+<li>本程序中暂时只能使用davenport 相关函数</li>
+</ul></li>
+</ol>
+<h2 id="references">References</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><大跨度桥梁脉动风场模拟的插值算法>(祝志文)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><基于实测风特性的台风模拟>(杨素珍)<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Shinozuka M, Deodatis G. Simulation of stochastic processes by spectral representation[J]. Applied mechanics reviews. 1991, 44(4): 191-204<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>Shinozuka M, Deodatis G. Simulation of stochastic processes by spectral representation[J]. Applied mechanics reviews. 1991, 44(4): 191-204<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><谐波合成法脉动风模拟时间步长的取值>(张军锋)<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>Shinozuka M, Deodatis G. Simulation of stochastic processes by spectral representation[J]. Applied mechanics reviews. 1991, 44(4): 191-204<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p><基于实测风特性的台风模拟>(杨素珍)<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p><大跨度桥梁脉动风场模拟的插值算法>(祝志文)<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p><台风作用下大跨斜拉桥抖振非平稳效应模拟与实测研究> 陶天友<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10" role="doc-endnote"><p><中美日建筑结构抗风设计规范的比较研究> 赵杨<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p><中美日建筑结构抗风设计规范的比较研究> 赵杨<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：谐波合成法的Python实现及其使用手册</li>
+        <li>Post author：GinkGo</li>
+        <li>Create time：2021-06-13 00:41:02</li>
+        <li>
+            Post link：https://ginkgoltd.github.io/2021/06/13/WAWS/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/05/07/openVFIFE/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">openVFIFE</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">GinkGo</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%90%E6%B3%A2%E5%90%88%E6%88%90%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">谐波合成法基本步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">2.</span> <span class="nav-text">关于一些参数的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E6%8B%9F%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94delta-t%E7%9A%84%E9%80%89%E5%8F%96"><span class="nav-number">2.1.</span> <span class="nav-text">关于模拟时间间隔\(\Delta t\)的选取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E7%8E%87%E7%82%B9%E6%95%B0n%E7%9A%84%E9%80%89%E5%8F%96%E5%8E%9F%E5%88%99"><span class="nav-number">2.1.1.</span> <span class="nav-text">频率点数\(N\)的选取原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%82%B9%E6%95%B0m%E7%9A%84%E9%80%89%E5%8F%96%E5%8E%9F%E5%88%99"><span class="nav-number">2.1.2.</span> <span class="nav-text">时间点数\(M\)的选取原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E4%B8%AD%E6%97%B6%E9%A2%91%E5%8F%82%E6%95%B0%E9%80%89%E5%8F%96%E5%BB%BA%E8%AE%AE%E5%92%8C%E5%AE%9E%E6%96%BD%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.1.3.</span> <span class="nav-text">模拟中时频参数选取建议和实施步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E9%A2%91%E7%8E%87%E8%A1%A8%E7%A4%BA%E7%9A%84%E9%A2%91%E8%B0%B1fomega%E5%92%8Cff"><span class="nav-number">2.1.4.</span> <span class="nav-text">两种频率表示的频谱\(F(\omega)\)和\(F(f)\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E9%A2%91%E7%8E%87%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%8A%9F%E7%8E%87%E8%B0%B1%E5%AF%86%E5%BA%A6pomega%E5%92%8Cpf"><span class="nav-number">2.1.5.</span> <span class="nav-text">两种频率表示的功率谱密度\(P(\omega)\)和\(P(f)\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E8%BE%B9%E8%B0%B1%E4%B8%8E%E5%8F%8C%E8%BE%B9%E8%B0%B1"><span class="nav-number">2.1.6.</span> <span class="nav-text">单边谱与双边谱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%85%B3%E4%BA%8E%E9%A3%8E%E8%B0%B1%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">2.1.7.</span> <span class="nav-text">程序中关于风谱的使用说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#waws%E5%90%88%E6%88%90%E6%B3%95%E7%9A%84%E5%8A%A0%E9%80%9F"><span class="nav-number">2.2.</span> <span class="nav-text">WAWS合成法的加速</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%8E%E5%9C%BA%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">2.3.</span> <span class="nav-text">风场相关参数的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87%E9%A3%8E%E5%89%96%E9%9D%A2"><span class="nav-number">2.3.1.</span> <span class="nav-text">平均风剖面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B9%8D%E6%B5%81%E5%BC%BA%E5%BA%A6"><span class="nav-number">2.3.2.</span> <span class="nav-text">湍流强度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%AF%E5%88%86%E5%B0%BA%E5%BA%A6"><span class="nav-number">2.3.3.</span> <span class="nav-text">积分尺度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%89%E5%8A%A8%E9%A3%8E%E9%80%9F%E8%B0%B1"><span class="nav-number">2.3.4.</span> <span class="nav-text">脉动风速谱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="nav-number">2.3.5.</span> <span class="nav-text">空间相关性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A3%8E%E5%9C%BA%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-number">2.3.6.</span> <span class="nav-text">风场相关参数的选择建议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#references"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
