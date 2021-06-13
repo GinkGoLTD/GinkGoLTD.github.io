@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="GinkGo">
+    
+    <title>
+        
+            Code Conventions in openVFIFE |
+        
+        GinkGo
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"ginkgoltd.githut.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg","favicon":"https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"To be continued ..."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                GinkGo
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/openVFIFE"
+                            >
+                                OPENVFIFE
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/openVFIFE">OPENVFIFE</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Code Conventions in openVFIFE</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/ginkgo.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">GinkGo</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-06-13 00:41:02
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/openVFIFE/">openVFIFE</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="code-conventions-编码规范">Code Conventions 编码规范</h1>
+<p>参考Google C++ Style Guide</p>
+<h2 id="naming-conventions-命名规范">1. Naming Conventions 命名规范</h2>
+<h3 id="通用命名规则">1.1 通用命名规则</h3>
+<p>尽可能给有描述性的命名，别心疼空间，毕竟让代码易于新读者理解很重要。不要用只有项目开发者能理解的缩 写，也不要通过砍掉几个字母来缩写单词。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">int</span> price_count_reader;</span><br><span class="line"><span class="keyword">int</span> num_errors;</span><br><span class="line"><span class="keyword">int</span> num_dns_connections;</span><br><span class="line"></span><br><span class="line"><span class="comment">// terrible</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> nerr;</span><br><span class="line"><span class="keyword">int</span> n_comp_conns;</span><br><span class="line"><span class="keyword">int</span> wgc_connections;</span><br><span class="line"><span class="keyword">int</span> pc_readers;</span><br><span class="line"><span class="keyword">int</span> cstmr_id;</span><br></pre></td></tr></table></figure>
+<h3 id="文件命名">1.2 文件命名</h3>
+<p>文件名要全部小写, 可以包含下划线 (<em>) 或连字符 (-). 按项目约定来. 如果并没有项目约定， ”</em>” 更好。 可接受的文件命名:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_useful_class.cpp</span><br></pre></td></tr></table></figure>
+<h3 id="类型命名">1.3 类型命名</h3>
+<p><strong>Tip:</strong> 类型名称的每个单词首字母均大写, 不包含下划线: MyExcitingClass, MyExcitingEnum.</p>
+<p>所有类型命名——类, 结构体, 类型定义 (typedef), 枚举——均使用相同约定. 例如:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// classes and structs</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UrlTable</span> &#123;</span> ... &#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UrlTableTester</span> &#123;</span> ... &#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">UrlTableProperties</span> &#123;</span> ... &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// typedefs</span></span><br><span class="line"><span class="keyword">typedef</span> hash_map&lt;UrlTableProperties *, string&gt; PropertiesMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">// enums</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">UrlTableErrors</span> &#123;</span> ... &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="变量命名">1.4 变量命名</h3>
+<p><strong>Tip: </strong>变量名一律小写，单词之间用下划线连接。类的成员变量以下划线结尾，但结构体的就不用，如：<code>a_local_variable</code>, <code>a_struct_data_member</code>, <code>a_class_data_member_</code>。</p>
+<ul>
+<li>普通变量命名：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line">string table_name;</span><br><span class="line">string tablename;</span><br><span class="line"></span><br><span class="line"><span class="comment">// terrible</span></span><br><span class="line">string tableName;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>类数据成员</p>
+<p>不管是静态的还是非静态的，类数据成员都可以和普通变量一样，但是要接下划线</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TableInfo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">    	string table_name_;</span><br><span class="line">    	string tablename_;</span><br><span class="line">    	<span class="keyword">static</span> Pool&lt;TableInfo&gt;* pool_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>结构体变量</p>
+<p>不管是静态的还是非静态的，结构体数据成员都可以和普通变量一样，不用像类那样接下划线</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Struct UrlTableProperties</span><br><span class="line">&#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="keyword">int</span> num_entries;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>全局变量</p>
+<p>对全局变量没有特别要求，少用就好，但如果要用，可以用<code>g_</code>标志作为前缀，一遍更好地区分局部变量</p></li>
+</ul>
+<h3 id="常量命名">1.5 常量命名</h3>
+<p><strong>Tip: </strong>在全局或类里的常量名称前加<code>k</code>，如<code>kDaysInAWeek</code>，且除去开头的<code>k</code>之外每个单词开头字母均大写。所有编译时常量，无论是局部的，全局的还是类中的，和其他变量稍微区别一下。<code>k</code>后接大写字母开头的单词 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> kDaysInAWeek = <span class="number">7</span>;</span><br></pre></td></tr></table></figure> 这规则适用于编译时的局部作用域常量，不过要按变量规则来命名也可以。</p>
+<h3 id="函数命名">1.6 函数命名</h3>
+<p><strong>Tip: </strong>常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配:<code>MyExcitingFunciton()</code>,<code>MyExcitingMethod()</code>, <code>my_exciting_memeber_variable()</code>,<code>set_my_exciting_member_variable()</code></p>
+<ul>
+<li><p>常规函数</p>
+<p>函数名的每个首字母大写，没有下划线</p>
+<p>如果您的某函数出错时就要直接 crash, 那么就在函数名加上 OrDie. 但这函数本身必须集成在产品代码 里，且平时也可能会出错。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">AddTableEntry</span>();</span><br><span class="line"><span class="built_in">DeleteUrl</span>();</span><br><span class="line"><span class="built_in">OpenFileOrDie</span>();</span><br></pre></td></tr></table></figure></li>
+<li><p>取值和设值函数</p>
+<p>取值（ Accessors）和设值（ Mutators）函数要与存取的变量名匹配. 这儿摘录一个类, <code>num_entries_</code>是该 类的实例变量:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    	...</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">num_entries</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> num_entries_;&#125;;</span><br><span class="line">    	<span class="function"><span class="keyword">void</span> <span class="title">set_num_entries</span><span class="params">(<span class="keyword">int</span> num_entries)</span> </span>&#123;num_entries_ = num_entries;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> num_entries_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其它非常短小的内联函数名也可以用小写字母, 例如. 如果你在循环中调用这样的函数甚至都不用缓存其 返回值, 小写命名就可以接受</p></li>
+</ul>
+<h3 id="名字空间命名">1.7 名字空间命名</h3>
+<p><strong>Tip: </strong>名字空间用小写字母命名, 并基于项目名称和目录结构: <code>google_awesome_project</code></p>
+<h3 id="枚举命名">1.8 枚举命名</h3>
+<p><strong>Tip: </strong>枚举的命名应当和常量或者宏一致：<code>kEnumName</code>或是<code>ENUM_NAME</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">UrlTableErros</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    kOK = <span class="number">0</span>,</span><br><span class="line">    kErrorOutOfMemory,</span><br><span class="line">    kErrorMalformedInput,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Code Conventions in openVFIFE</li>
+        <li>Post author：GinkGo</li>
+        <li>Create time：2021-06-13 00:41:02</li>
+        <li>
+            Post link：https://ginkgoltd.github.io/2021/06/13/openVFIFE_code_conventions/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/06/13/openVFIFE_quick_strart/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">User Guide of openVFIFE</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+        
+        
+            
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+          
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">GinkGo</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#code-conventions-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">Code Conventions 编码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#naming-conventions-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.</span> <span class="nav-text">1. Naming Conventions 命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 通用命名规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 文件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 类型命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 变量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5 常量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.6.</span> <span class="nav-text">1.6 函数命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E5%AD%97%E7%A9%BA%E9%97%B4%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.7.</span> <span class="nav-text">1.7 名字空间命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E5%91%BD%E5%90%8D"><span class="nav-number">1.1.8.</span> <span class="nav-text">1.8 枚举命名</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -176,7 +176,67 @@
         
         <div class="page-template-content markdown-body">
             
-                
+                <h1 id="ginkgo-openvfife">GinkGo openVFIFE</h1>
+<p>Software Available: https://gitee.com/ginkgoltd/openvfife.git</p>
+<p>Author: GinkGo (Tan Biao, 谭彪)</p>
+<p>Email: ginkgoltd@outlook.com</p>
+<p>More documentations can be found in my blog, wish you had a nice trip in openVFIFE.</p>
+<h2 id="description">Description</h2>
+<p>The openVFIFE is a <code>C++</code> library for structural nonliear dynamic analysis and discontinuous behaviour analysis based on vector form intrinsic finite element method (referred to as VFIFE).</p>
+<p><strong>Motivation: </strong> The VFIFE has already been applied in many research fields, and has made great achievements. However, there is no available software/platform for it, which is an main obstcale of the development and popularization of VFIFE. On the other hand, the author (Tan Biao or GinkGo) tries to introduce VFIFE into the collapse analysis of transmission tower. For this reason, the <em>openVFIFE</em> has been implemented to provide a general VFIFE analysis software/platform for researchers or engineers who interested in VFIFE.</p>
+<p><strong>Final goal: </strong> The openVFIFE is currently released in the form of <code>C++</code> library. But it will never stop here. A completely independent cross-platform software package is my ultimate goal. The author will continue to work hard for this. And the contributions from all of you are quite important. If you have any suggestions or advices, or want to contribute new codes , please contact me (ginkgoltd@outlook.com).</p>
+<p><strong>Main Characters: </strong></p>
+<ul>
+<li>openVFIFE is a completely open source library, which strictly abides by GNU/GPL v3.0 License (see LICENSE file).</li>
+<li>openVFIFE is fast.</li>
+<li>openVFIFE is reliable.</li>
+<li>openVFIFE is user- and developer-friendly.</li>
+<li>openVFIFE is scalable.</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>The <code>C++</code> standard library and <code>Eigen3</code> library (already contained in the source code) are need.</p>
+<h2 id="installation">Installation</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> g++ -c -O3 element.cpp gridsection.cpp integrator.cpp material.cpp particle.cpp section.cpp structsystem.cpp</span> </span><br><span class="line"><span class="meta">$</span><span class="bash"> ar rcs libvfife.a element.o gridsection.o integrator.o material.o particle.o section.o structsystem.o</span></span><br></pre></td></tr></table></figure>
+<h2 id="instructions">Instructions</h2>
+<p>see the <code>./docs/user_maual.md</code> and <code>./docs/developer_manual.md</code>.</p>
+<p>For online documentations, please visit https://ginkgoltd.github.io.</p>
+<h2 id="license">License</h2>
+<p>openVFIFE is <a class="link"   target="_blank" rel="noopener" href="http://www.gnu.org/philosophy/free-sw.html" >Free Software<i class="fas fa-external-link-alt"></i></a>. Starting from the 1.0 version, it is licensed under the GNU/GPL v3.0.</p>
+<p>Make sure you are aware of the <code>COPYRITHT</code> and <code>LICENSE</code>. <strong>CAUTION:</strong></p>
+<ul>
+<li>This software program and documentation are copyrighted by GinkGo(Tan Biao).</li>
+<li>The GinkGo does not warrant that the operation of the program will be uninterrupted or error-free. The end-user understands that the program was developed for research purposes and is advised not to rely exclusively on the program for any reason.</li>
+</ul>
+<h2 id="compiler-support">Compiler support</h2>
+<p>openVFIFE is standard <code>C++11</code> and so should theoretically be compatible with any compliant compiler.Whenever we use some non-standard feature, that is optional and can be disabled.</p>
+<p>Eigen is being successfully used with the following compilers:</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="http://gcc.gnu.org/" >GCC<i class="fas fa-external-link-alt"></i></a>, version 6.3 and newer. Older versions of gcc might work as well but they are not tested anymore.</li>
+</ul>
+<p>More compilers such as MSVC(Visual Studio), Intel C++ compiler, LLVM/CLang++, Xcode, MinGW, and QNX's QCC compiler are not tested yet. These compilers will be tested in future and the performance of these compilers will be compared as well.</p>
+<h2 id="bug-reports">Bug reports</h2>
+<p>For bug reports and feature requests, please use the <a href="web%20site">issue tracker on GitHub</a></p>
+<h2 id="contribution">Contribution</h2>
+<ol type="1">
+<li>Fork the repository</li>
+<li>Create Feat_xxx branch</li>
+<li>Commit your code</li>
+<li>Create Pull Request</li>
+</ol>
+<h2 id="mailing-list">Mailing list</h2>
+<p>Address: ginkgoltd@outlook.com</p>
+<p>The openVFIFE mailing list can be used for discussing general openVFIFE development topics. End-user questions are often better asked on the Users Forum. Development of specific features is best tracked and discussed on our issue tracker on GitHub.</p>
+<p>This mailing list is public and has public archives.</p>
+<h2 id="credits">Credits</h2>
+<p>The openVFIFE project was started by Tan Biao (founder). Contribute your talents to help make openVFIFE successful. Here's an alphabetical list: (note to contributors: do add yourself!)</p>
+<ul>
+<li>Tan Biao (GinkGo) - founder of the project, and the first version of framework and implementation of the openVFIFE</li>
+<li>Looking forward to your joining!</li>
+</ul>
+<p><strong>openVFIFE is also using code that we copied from other sources.</strong> They are acknowledged in our sources and in the Mercurial history, but let's also mention them here:</p>
+<ul>
+<li>Eigen3 - <a class="link"   target="_blank" rel="noopener" href="http://eigen.tuxfamily.org/index.php?title=Main_Page" >Eigen<i class="fas fa-external-link-alt"></i></a> is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms.</li>
+</ul>
 
             
         </div>

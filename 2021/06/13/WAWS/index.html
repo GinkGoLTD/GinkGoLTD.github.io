@@ -302,9 +302,7 @@ B_{jm} = \left \{
 \right.
 \]</span> 而离散傅里叶逆变换的表达式为<span class="math inline">\(x(t) = \frac{1}{N} \sum_{n=0}^{N-1} X(n) e^{i\frac{2 \pi}{N} t n}\)</span> 因此, 可以对<span class="math inline">\(B_{jm}\)</span>进行离散傅里叶逆变换从而提高运算效率, (FFT的时间复杂度为<span class="math inline">\(nlog(n)\)</span>).</p>
 <p><strong>说明1:</strong> 在很多文献中对这部分都描述为使用FFT技术加速计算, 然而并未提及到底是使用<code>fft</code>还是<code>ifft</code>; 另一方面在网络上看到的很多代码中, 都是直接使用<code>fft</code>进行计算的. 然而, 依据上述推导过程及表达式, 显然应该使用<code>ifft</code>才比较合理; 另一方面, 从物理意义上看, <code>ifft</code>是将信号从频域转换到时域, 和<span class="math inline">\(B_{jm}转换到G_{jm}\)</span>这个过程也是吻合的. 此外, 为了验证采用<code>ifft</code>的正确性, 对比了直接采用Deodatis双索引公式合成的脉动风和采用<code>ifft</code>合成的脉动风速的时程和频谱, 结果表明二者完全一致, 这足以说明采用<code>ifft</code>的正确性.</p>
-<p><strong>说明2: </strong>在很多文献<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>中 <span class="math display">\[
-p \Delta t, p=0,1,2,3,..., M \times npts-1
-\]</span> 生成风速的总时长都为<span class="math inline">\(T=nT_0=npts \times M \times \Delta t\)</span>, <strong>我没搞懂这个是怎么来的?</strong> 在我推导的表达式中, 模拟时长<span class="math inline">\(T=T_0\)</span>与模拟点数<span class="math inline">\(npts\)</span>并无关系, 实际模拟的结果无论是总能量还是频谱分布都吻合, 所以这个为啥这么做?</p>
+<p><strong>说明2: </strong>在很多文献<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>中<span class="math inline">\(p \Delta t, p=0,2,3,..., M*npts-1\)</span> 生成风速的总时长都为<span class="math inline">\(T=nT_0=npts*M*\Delta t\)</span>, <strong>我没搞懂这个是怎么来的?</strong> 在我推导的表达式中, 模拟时长<span class="math inline">\(T=T_0\)</span>与模拟点数<span class="math inline">\(npts\)</span>并无关系, 实际模拟的结果无论是总能量还是频谱分布都吻合, 所以这个为啥这么做?</p>
 <p><img src="https://gitee.com/ginkgoltd/pictures/raw/master/img/Fig2.png" /></p>
 <p><strong>Step 5 (option 1): </strong>平稳信号模拟的误差分析</p>
 <p>完成全部模拟后, 应当对生成的信号进行误差分析, 以此判断模拟结果的精度, 误差分析应当包含如下几部分内容</p>
@@ -941,14 +939,29 @@ c_x = 8, c_z = 7
         
             <div class="article-nav">
                 
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/06/13/openVFIFE_quick_strart/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">User Guide of openVFIFE</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/05/07/openVFIFE/"
+                           href="/2021/06/13/openVFIFE_examples/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">openVFIFE</span>
+                                <span class="post-nav-title-item">Examples of openVFIFE</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
